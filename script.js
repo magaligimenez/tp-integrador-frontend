@@ -1,1 +1,1 @@
-const apiBaseUrl = 'http://localhost:3000/api';
+const apiBaseUrl = 'http://localhost:3000/api'; //solicito la info de la api

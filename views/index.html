@@ -8,19 +8,17 @@
     <title>Inicio</title>
 </head>
 <body>
-    <!-- Navbar dinámico -->
+    <!-- navbar -->
     <div id="navbar-container"></div>
 
-    <!-- Main Content -->
+    <!-- main Content -->
     <main class="container wrapper">
         <h1>Bienvenido al Inicio</h1>
-        <p>Esta es la página principal de la aplicación. Aquí puedes navegar a las diferentes secciones como Usuarios, Cursos y Registrar un Usuario.</p>
+        <p>Aca estan las secciones Usuarios, Cursos y Registrar un Usuario.</p>
 
-        <!-- Puedes agregar más contenido aquí -->
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
-                    <!-- <img src="https://via.placeholder.com/150" class="card-img-top" alt="Imagen"> -->
                     <div class="card-body">
                         <h5 class="card-title">Usuarios</h5>
                         <p class="card-text">Accede a la lista de usuarios registrados.</p>
@@ -31,7 +29,6 @@
 
             <div class="col-md-4">
                 <div class="card">
-                    <!-- <img src="https://via.placeholder.com/150" class="card-img-top" alt="Imagen"> -->
                     <div class="card-body">
                         <h5 class="card-title">Cursos</h5>
                         <p class="card-text">Consulta los cursos disponibles.</p>
@@ -42,7 +39,6 @@
 
             <div class="col-md-4">
                 <div class="card">
-                    <!-- <img src="https://via.placeholder.com/150" class="card-img-top" alt="Imagen"> -->
                     <div class="card-body">
                         <h5 class="card-title">Registrar Usuario</h5>
                         <p class="card-text">Añade un nuevo usuario a la aplicación.</p>
@@ -56,13 +52,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Cargar el navbar dinámicamente
+        //cargar el navbar
         const navbarContainer = document.getElementById('navbar-container');
         fetch('navbar.html')
             .then(response => response.text())
             .then(data => {
                 navbarContainer.innerHTML = data;
-                // Marcar como activa la página actual
+                //pag actual activa
                 const links = navbarContainer.querySelectorAll('.nav-link');
                 links.forEach(link => {
                     if (link.href === window.location.href) {

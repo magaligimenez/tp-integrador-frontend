@@ -8,15 +8,15 @@
     <title>Usuarios</title>
 </head>
 <body>
-    <!-- Navbar -->
+    <!-- navbar -->
     <div id="navbar-container"></div>
 
-    <!-- Main Content -->
+    <!-- main Content -->
     <main class="container wrapper">
         <h1>Usuarios</h1>
 
         <div class="row" id="users-container">
-            <!-- Aquí se insertarán dinámicamente las tarjetas de usuarios -->
+            <!-- aca estan las tarjetas de los users -->
         </div>
 
         <!-- Paginación -->
@@ -29,13 +29,13 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Cargar el navbar dinámicamente
+        //cargar navbar
         const navbarContainer = document.getElementById('navbar-container');
         fetch('navbar.html')
             .then(response => response.text())
             .then(data => {
                 navbarContainer.innerHTML = data;
-                // Marcar como activa la página actual
+                //pag actual activa
                 const links = navbarContainer.querySelectorAll('.nav-link');
                 links.forEach(link => {
                     if (link.href === window.location.href) {
@@ -47,23 +47,23 @@
             })
             .catch(error => console.error('Error al cargar el navbar:', error));
 
-        // Variables de paginación
-        let currentPage = 1; // Página inicial
+        //var de paginacion
+        let currentPage = 1; //pag inicial
 
         const usersContainer = document.getElementById('users-container');
         const prevPageBtn = document.getElementById('prevPage');
         const nextPageBtn = document.getElementById('nextPage');
         const pageIndicator = document.getElementById('pageIndicator');
 
-        // Función para obtener los usuarios de la API
+        //función para obtener los usuarios de la API
         async function fetchUsers() {
             try {
                 const response = await fetch('http://localhost:3000/users?page=' + currentPage);
                 const data = await response.json();
                 console.log('Usuarios:', data);
 
-                // Actualizar el DOM con los usuarios
-                usersContainer.innerHTML = ''; // Limpiar el contenedor de usuarios
+                //actualizar el DOM con los usuarios
+                usersContainer.innerHTML = ''; //limpiar el contenedor de usuarios
 
                 data.users.forEach(user => {
                     const userCard = document.createElement('div');
@@ -86,10 +86,10 @@
                     usersContainer.appendChild(userCard);
                 });
 
-                // Actualizar el indicador de la página
+                //actualizar el indicador de la página
                 pageIndicator.textContent = `Página ${data.currentPage} de ${data.totalPages}`;
 
-                // Habilitar/Deshabilitar botones de paginación
+                //Habilitar/Deshabilitar botones de paginación
                 prevPageBtn.disabled = data.currentPage === 1;
                 nextPageBtn.disabled = data.currentPage === data.totalPages;
             } catch (error) {
@@ -97,7 +97,7 @@
             }
         }
 
-        // Función para cambiar de página
+        //función para cambiar de página
         prevPageBtn.addEventListener('click', () => {
             if (currentPage > 1) {
                 currentPage--;
@@ -110,12 +110,9 @@
             fetchUsers();
         });
 
-        // Inicializar la carga de usuarios
+        //inicializamos la carga de usuarios
         fetchUsers();
     </script>
-
-    <!-- Script para cargar usuarios y manejar la paginación -->
-    <script src="js/users.js"></script>
 </body>
 </html>
 
