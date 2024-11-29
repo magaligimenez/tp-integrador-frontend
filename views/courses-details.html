@@ -60,7 +60,7 @@
                     if(data.course.usuarios.length > 0) {
                         data.course.usuarios.forEach(user => {
                             const userItem = document.createElement('li');
-                            userItem.textContent = `${user.nombre} - ${user.email}`;
+                            userItem.textContent = `${user.nombre} - ${user.email} - ${user.telefono}`;
                             userList.appendChild(userItem);
                         });
 
