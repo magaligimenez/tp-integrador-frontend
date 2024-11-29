@@ -77,7 +77,7 @@
                             <p class="card-text">Email: ${user.email}</p>
                             <p class="card-text">${user.curso ? `Curso asignado: ${user.curso}` : 'Sin curso asignado'}</p>
                             ${user.curso === 'No asignado' ? `
-                                <button class="btn btn-primary" onclick="asignarCurso(${user.id})">Asignar curso</button>
+                                <button class="btn btn-primary" onclick="window.location.href = 'asignar-curso.html?userId=${user.id}'">Asignar curso</button>
                             ` : ''}
                         </div>
                     </div>
