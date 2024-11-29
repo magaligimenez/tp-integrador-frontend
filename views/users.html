@@ -66,24 +66,23 @@
                 usersContainer.innerHTML = ''; //limpiar el contenedor de usuarios
 
                 data.users.forEach(user => {
-                    const userCard = document.createElement('div');
-                    userCard.classList.add('col-md-4');
-                    userCard.innerHTML = `
-                        <div class="card">
-                            <img src="${user.imagen}" class="card-img-top" alt="Imagen de perfil">
-                            <div class="card-body">
-                                <h5 class="card-title">Alumno: ${user.nombre}</h5>
-                                <p class="card-text">Email: ${user.email}</p>
-                                <p class="card-text">
-                                    ${user.curso ? `Curso asignado: ${user.curso}` : 'Sin curso asignado'}
-                                </p>
-                                ${!user.curso ? `
-                                    <button class="btn btn-primary" onclick="asignarCurso(${user.id})">Asignar curso</button>
-                                ` : ''}
-                            </div>
+                const userCard = document.createElement('div');
+                userCard.classList.add('col-md-4');
+
+                userCard.innerHTML = `
+                    <div class="card">
+                        <img src="${user.imagen}" class="card-img-top" alt="Imagen de perfil">
+                        <div class="card-body">
+                            <h5 class="card-title">Alumno: ${user.nombre}</h5>
+                            <p class="card-text">Email: ${user.email}</p>
+                            <p class="card-text">${user.curso ? `Curso asignado: ${user.curso}` : 'Sin curso asignado'}</p>
+                            ${user.curso === 'No asignado' ? `
+                                <button class="btn btn-primary" onclick="asignarCurso(${user.id})">Asignar curso</button>
+                            ` : ''}
                         </div>
-                    `;
-                    usersContainer.appendChild(userCard);
+                    </div>
+                `;
+                usersContainer.appendChild(userCard);
                 });
 
                 //actualizar el indicador de la página
