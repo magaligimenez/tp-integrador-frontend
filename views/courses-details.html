@@ -8,19 +8,16 @@
     <title>Detalles curso</title>
 </head>
 <body>
+    <!-- Navbar -->
     <div id="navbar-container"></div>
 
     <div id="course-details" class="container">
-        <!--aqui se mostraran los detalles del curso-->
+        <!-- Aquí se mostrarán los detalles del curso y los usuarios -->
     </div>
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/views/js/navbar.js"></script>
-    <script src="/views/js/course-details.js"></script>
-
-    <!-- <script>
-        //cargar el navbar
+    <script>
+        //Cargar el navbar
         const navbarContainer = document.getElementById('navbar-container');
         fetch('navbar.html')
             .then(response => response.text())
@@ -37,19 +34,27 @@
                 });
             })
             .catch(error => console.error('Error al cargar el navbar:', error));
-        
-        const urlParams = new URLSearchParams(window.location.search);
-        const courseId = urlParams.get('id');
+
+
+        let currentPage = 1;
+        const usersPerPage = 5; //num de users por pag
+        let totalUsers = 0;
+        let allUsers = [];
+
+        //funcion para cargar detalles de curso y users
+        function loadCourseDetails() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const courseId = urlParams.get('id');
 
         if (courseId) {
-            //llamar a la API para obtener el curso con los usuarios asignados
+            // Llamar a la API para obtener el curso con los usuarios asignados
             fetch(`http://localhost:3000/api/cursos/usuarios/${courseId}`)
                 .then(response => response.json())
                 .then(data => {
-                    //mostrar el curso y los usuarios
+                    // Mostrar el curso y los usuarios
                     const courseDetailsContainer = document.getElementById('course-details');
 
-                    //mostrar detalles del curso
+                    // Mostrar detalles del curso
                     courseDetailsContainer.innerHTML = `
                         <h2>${data.course.nombre}</h2>
                         <p>${data.course.descripcion}</p>
@@ -57,7 +62,7 @@
                         <ul id="user-list"></ul>
                     `;
 
-                    //mostrar usuarios asignados al curso
+                    // Mostrar usuarios asignados al curso
                     const userList = document.getElementById('user-list');
                     if(data.course.usuarios.length > 0) {
                         data.course.usuarios.forEach(user => {
@@ -80,6 +85,6 @@
         }
 
                 
-    </script> -->
+    </script>
 </body>
 </html>
