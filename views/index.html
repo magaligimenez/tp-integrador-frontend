@@ -8,10 +8,10 @@
     <title>Inicio</title>
 </head>
 <body>
-    <!-- navbar -->
+
     <div id="navbar-container"></div>
 
-    <!-- main Content -->
+
     <main class="container wrapper">
         <h1>Bienvenido al Inicio</h1>
         <p>Aca estan las secciones Usuarios, Cursos y Registrar un Usuario.</p>
@@ -66,15 +66,18 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/views/js/navbar.js"></script>
+    <script src="/views/js/index.js"></script>
 
-    <script>
+
+    <!-- <script>
         //cargar el navbar
         const navbarContainer = document.getElementById('navbar-container');
         fetch('navbar.html')
             .then(response => response.text())
             .then(data => {
                 navbarContainer.innerHTML = data;
-                // Página actual activa
+                //pagina actual activa
                 const links = navbarContainer.querySelectorAll('.nav-link');
                 links.forEach(link => {
                     if (link.href === window.location.href) {
@@ -116,7 +119,7 @@
         }
 
         cargarCursosAleatorios();
-    </script>
+    </script> -->
 
 </body>
 </html>

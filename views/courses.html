@@ -8,15 +8,14 @@
     <title>Cursos</title>
 </head>
 <body>
-    <!-- Navbar -->
     <div id="navbar-container"></div>
 
-    <!-- Main Content -->
+
     <main class="container wrapper">
         <h1>Cursos</h1>
 
         <div class="row" id="courses-container">
-            <!-- Aca van a estar las tarjetas de cursos -->
+            <!--aca van las tarjetas de los cursos-->
         </div>
 
         <!-- Paginación -->
@@ -28,7 +27,10 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
+    <script src="/views/js/navbar.js"></script>
+    <script src="/views/js/courses.js"></script>
+
+    <!-- <script>
         //Cargar el navbar
         const navbarContainer = document.getElementById('navbar-container');
         fetch('navbar.html')
@@ -61,7 +63,7 @@
                 const data = await response.json();
                 console.log('Cursos:', data);
 
-                // Actualizar el DOM con los cursos
+                //actualizar el DOM con los cursos
                 coursesContainer.innerHTML = ''; //limpiar el contenedor de cursos
 
                 data.cursos.forEach(curso => {
@@ -107,6 +109,6 @@
         fetchCourses();
 
         
-    </script>
+    </script> -->
 </body>
 </html>
