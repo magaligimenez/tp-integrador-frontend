@@ -72,7 +72,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">${curso.nombre}</h5>
                                 <p class="card-text">${curso.descripcion}</p>
-                                <a href="/course/${curso.id}" class="btn btn-primary">Ver más</a>
+                                <a href="/views/courses-details.html?id=${curso.id}" class="btn btn-primary btn-view-details">Ver más</a>
                             </div>
                         </div>
                     `;
@@ -105,6 +105,8 @@
 
         // inicializar la carga de cursos
         fetchCourses();
+
+        
     </script>
 </body>
 </html>
